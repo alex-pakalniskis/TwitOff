@@ -14,15 +14,13 @@ class Book(db.Model):
 class Tweet(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     text = db.Column(db.String(128))
-    timestamp = db.Column(db.String(128))
-    device_type = db.Column(db.String(128))
-    author_id = db.Column(db.Integer(128))
+    author_id = db.Column(db.String(128))
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)    
-    tweets = db.Column(db.Integer(128))
-    followers = db.Column(db.Integer(128))
-    following = db.Column(db.Integer(128))
+    tweets = db.Column(db.Integer)
+    followers = db.Column(db.Integer)
+    following = db.Column(db.Integer)
 
 
 def parse_records(database_records):

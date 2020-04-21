@@ -13,8 +13,8 @@
 
     {% if tweets %}
         <ul>
-        {% for tweet in tweet %}
-            <li>{{ tweet["text"] }}</li>
+        {% for tweet in tweets %}
+            <li>{{ tweet.text }}</li>
         {% endfor %}
         </ul>
 
