@@ -8,15 +8,9 @@ load_dotenv()
 
 API_KEY = os.getenv("BASILICA_API_KEY")
 
-def basilica_api_client():
-    connection = basilica.Connection(API_KEY)
-    print(type(connection)) #> <class 'basilica.Connection'>
-    return connection
+connection = basilica.Connection(API_KEY)
 
 if __name__ == "__main__":
-
-    print("---------")
-    connection = basilica_api_client()
 
     print("---------")
     sentence = "Hello again"
@@ -31,3 +25,8 @@ if __name__ == "__main__":
     print("EMBEDDINGS...")
     print(type(embeddings))
     print(list(embeddings)) # [[0.8556405305862427, ...], ...]
+
+    print("---------")
+    tweet_text = "I love #ArtificialIntelligence"
+    tweet_embedding = connection.embed_sentence(tweet_text, model="twitter")
+    print(list(tweet_embedding))
